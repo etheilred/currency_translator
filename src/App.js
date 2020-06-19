@@ -63,11 +63,11 @@ class App extends Component {
 
   onFormSubmit(e) {
     e.preventDefault()
-    if (Number.isNaN(this.state.value)) {
+    if (Number.isNaN(this.state.value) || this.state.value < 0) {
       this.setState({
         excResult: `${this.state.value} is not a valid value, try entering a valid number`
       });
-      return
+      return;
     }
     fetch("https://api.ratesapi.io/api/latest?base=USD")
       .then(resp => resp.json())
@@ -97,12 +97,14 @@ class App extends Component {
       <div class="App">
         <section class="content">
           <form onSubmit={this.onFormSubmit}>
-            <input type="text" placeholder="Value" onChange={this.onValueChange} />
-            <SymbolSelector symbols={symbols} onChange={this.onBaseChange} default={this.state.base} />
-            <span id="to">To</span>
-            <SymbolSelector symbols={symbols} onChange={this.onSymbolChange} default={this.state.symbol} />
             <div>
-              <input type="submit" value="Translate"/>
+              <SymbolSelector symbols={symbols} onChange={this.onBaseChange} default={this.state.base} />
+              <span id="to">To</span>
+              <SymbolSelector symbols={symbols} onChange={this.onSymbolChange} default={this.state.symbol} />
+            </div>
+            <input type="text" placeholder="Value" onChange={this.onValueChange} />
+            <div>
+              <input type="submit" value="Translate" />
             </div>
           </form>
           <div class="exchangeResult">
