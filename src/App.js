@@ -102,7 +102,7 @@ class App extends Component {
               <span id="to">To</span>
               <SymbolSelector symbols={symbols} onChange={this.onSymbolChange} default={this.state.symbol} />
             </div>
-            <input type="text" placeholder="Value" onChange={this.onValueChange} />
+            <input id="value" type="text" placeholder="Value" onChange={this.onValueChange} />
             <div>
               <input type="submit" value="Translate" />
             </div>
