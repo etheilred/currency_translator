@@ -69,7 +69,7 @@ class App extends Component {
       });
       return;
     }
-    fetch("https://api.ratesapi.io/api/latest?base=USD")
+    fetch(`https://api.ratesapi.io/api/latest?base=${this.state.base}`)
       .then(resp => resp.json())
       .then(rates => {
         this.setState({
