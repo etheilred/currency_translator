@@ -62,11 +62,12 @@ class App extends Component {
   }
 
   onFormSubmit(e) {
+    e.preventDefault()
     if (Number.isNaN(this.state.value)) {
       this.setState({
         excResult: `${this.state.value} is not a valid value, try entering a valid number`
       });
-      return;
+      return
     }
     fetch("https://api.ratesapi.io/api/latest?base=USD")
       .then(resp => resp.json())
@@ -74,8 +75,7 @@ class App extends Component {
         this.setState({
           excResult: `${this.state.value} ${this.state.base} is ${(this.state.value * rates.rates[this.state.symbol]).toFixed(2)} ${this.state.symbol}`
         })
-      })
-    e.preventDefault()
+      });
   }
 
   render() {
