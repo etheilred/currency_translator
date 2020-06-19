@@ -3,7 +3,26 @@
   min-height: 100vh;
 }
 .content {
+  margin: 0 auto;
+  width: 50vw;
   padding: 1rem 2rem 1rem 1rem;
+}
+
+.form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#value {
+  width: 100%;
+}
+
+#btn-submit {
+  text-align: center;
+}
+
+#selectors {
+  text-align: center;
 }
 
 .footer {

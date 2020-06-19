@@ -96,17 +96,23 @@ class App extends Component {
     return (
       <div class="App">
         <section class="content">
-          <form onSubmit={this.onFormSubmit}>
-            <div>
-              <SymbolSelector symbols={symbols} onChange={this.onBaseChange} default={this.state.base} />
-              <span id="to">To</span>
-              <SymbolSelector symbols={symbols} onChange={this.onSymbolChange} default={this.state.symbol} />
-            </div>
-            <input id="value" type="text" placeholder="Value" onChange={this.onValueChange} />
-            <div>
-              <input type="submit" value="Translate" />
-            </div>
-          </form>
+          <div class="form">
+            <form onSubmit={this.onFormSubmit}>
+              <div id="form-inner">
+                <div id="selectors">
+                  <SymbolSelector symbols={symbols} onChange={this.onBaseChange} default={this.state.base} />
+                  <span id="to">To</span>
+                  <SymbolSelector symbols={symbols} onChange={this.onSymbolChange} default={this.state.symbol} />
+                </div>
+                <div id="input-field">
+                  <input id="value" type="text" placeholder="Value" onChange={this.onValueChange} />
+                  <div id="btn-submit">
+                    <input type="submit" value="Translate" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
           <div class="exchangeResult">
             <h2>{this.state.excResult}</h2>
           </div>
