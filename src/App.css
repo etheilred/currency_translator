@@ -39,3 +39,7 @@ span {
 #value {
   margin: 0.5rem 0;
 }
+
+.exchangeResult {
+  text-align: center;
+}

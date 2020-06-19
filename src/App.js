@@ -44,7 +44,7 @@ class App extends Component {
   onValueChange(e) {
     // alert(+e.target.value)
     this.setState({
-      value: +e.target.value
+      value: e.target.value
     });
   }
 
@@ -63,7 +63,7 @@ class App extends Component {
 
   onFormSubmit(e) {
     e.preventDefault()
-    if (Number.isNaN(this.state.value) || this.state.value < 0) {
+    if (Number.isNaN(+this.state.value) || +this.state.value < 0) {
       this.setState({
         excResult: `${this.state.value} is not a valid value, try entering a valid number`
       });
@@ -73,7 +73,7 @@ class App extends Component {
       .then(resp => resp.json())
       .then(rates => {
         this.setState({
-          excResult: `${this.state.value} ${this.state.base} is ${(this.state.value * rates.rates[this.state.symbol]).toFixed(2)} ${this.state.symbol}`
+          excResult: `${this.state.value} ${this.state.base} is ${(+this.state.value * rates.rates[this.state.symbol]).toFixed(2)} ${this.state.symbol}`
         })
       });
   }
